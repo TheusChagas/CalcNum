@@ -12,13 +12,13 @@ void imprimir_matriz(float mat[N][N+1]) {
 }
 
 void retrosubstituicao(float mat[N][N+1]) {
-    float x[N];
+    float x[N]; // Vetor de respostas
     for (int i = N-1; i >= 0; i--) {
-        x[i] = mat[i][N];
+        x[i] = mat[i][N]; //Iguala o vetor ultima linha não resolvida
         for (int j = i+1; j < N; j++) {
-            x[i] = x[i] - mat[i][j]*x[j];
+            x[i] = x[i] - mat[i][j]*x[j]; //Atribui os valores ja conhecidos a equação
         }
-        x[i] = x[i]/mat[i][i];
+        x[i] = x[i]/mat[i][i]; //Resolve a equação da linha
     }
 
     printf("\nA solução é: \n");
